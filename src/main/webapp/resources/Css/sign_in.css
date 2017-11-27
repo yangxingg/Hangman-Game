@@ -1,0 +1,16 @@
+.centered{
+	text-align: center;
+}
+
+.righted{
+	text-align: right;
+}
+
+.input-group{
+	width: 100%;
+}
+
+form .error {
+  	color: #ff0000;
+}
+
