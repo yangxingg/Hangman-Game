@@ -29,7 +29,6 @@ public class UserDAO extends DAO{
             	 	return false;
         } catch (HibernateException e) {
             rollback();
-            
         }
 		return false;
 	}
@@ -45,11 +44,8 @@ public class UserDAO extends DAO{
             		return user;
             commit();
             close();
-           
-            
        } catch (HibernateException e) {
            rollback();
-           
        }
 		return null;
 	}
@@ -64,29 +60,21 @@ public class UserDAO extends DAO{
 			return user;
        } catch (HibernateException e) {
            rollback();
-           
        }
 		return null;
-		
 	}
 	
 	public void addHistory(History history, User user) {
 		try {
-			
 			begin();
-			//user.getHistorylist().add(history); 
 			logger.info("begin");
 			getSession().save(history);
-    			//getSession().update(user);
-    			//logger.info(String.valueOf(user.getHistorylist().size()));
     			commit();
     			close();
-        	 
         } catch (HibernateException e) {
             rollback();
             logger.info(e.getMessage());
         }	
 	}
-	
 	
 }

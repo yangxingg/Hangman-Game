@@ -1,6 +1,13 @@
 body{
 	background-color: #263349;
 }
+
+#result{
+	height: 70px;
+	color: white;
+}
+
+
 #pictures{
 	height: 500px;
 	overflow: scroll;
@@ -10,7 +17,6 @@ body{
 	
 	height: 100%;
 } */
-
 .blank{
 
 	height: 10px;

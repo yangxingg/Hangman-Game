@@ -4,7 +4,7 @@
 		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> <!--  -->
 		<property name="hibernate.connection.url">jdbc:mysql://xingyang.cjzrvzwjxx5l.us-east-1.rds.amazonaws.com:3306/Hangman</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">Yang1030</property>

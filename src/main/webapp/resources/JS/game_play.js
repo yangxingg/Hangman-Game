@@ -5,6 +5,19 @@
 
 /* keyboard cllik, color change, unable */
 $(document).ready(function(){
+	$("body").keypress(function(e){
+       var letter = String.fromCharCode(event.which)
+       if(letter.match(/[a-z]/i)){
+    	   	   letter = letter.toUpperCase()
+    	   	   $("button[value='"+letter+"']").css("background-color", "rgba(191, 191, 191,0,6)");
+    	   	   $("button[value='"+letter+"']").css("color", "black");
+           $("button[value='"+letter+"']").attr("disabled","disabled");
+           $("button[value='"+letter+"']").addClass('no-hover');
+    	   	   guess(letter)
+       }
+    });
+	
+	
 	$(".letterBtn").click(function(){
         $(this).css("background-color", "rgba(191, 191, 191,0,6)");
         $(this).css("color", "black");

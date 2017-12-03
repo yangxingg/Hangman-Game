@@ -10,18 +10,21 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/lib/bootstrap/dist/css/bootstrap.min.css" />" />
     <link rel="stylesheet" href="<c:url value="/resources/lib/font-awesome/css/font-awesome.min.css" />" />
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/Css/history_view.css" />" />
-<title>hangman</title>
+<title>Hangman</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/navigation.jsp" />
-
-
-    
-
-    <div class="container-fluid" >     
+    <div class="container-fluid" >    
         <div id="pictures" class="row">
             <div class="col-md-2"></div> 
             <div class="col-md-8">
+            	    <table class="table table-dark">
+            	    		<tr>
+            	    			<td><label>Win: <c:out value="${sessionScope.failCount}" /></label></td>
+            	    			<td><label>Fail: <c:out value="${sessionScope.succeCount}" /></label></td>
+            	    			<td><label>Win Rate: <c:out value="${sessionScope.ratio}%" /></label></td>
+            	    		</tr>
+            	    </table>
                 <table class="table table-dark">
                   <thead>
                     <tr>
@@ -36,7 +39,7 @@
                       <th scope="row">${status.index + 1 }</th>
                       <td><c:out value="${history}"/></td>
                       <td>
-                     		 <c:out value="${sessionScope.historyRes[status.index]}"/>
+                     	<c:out value="${sessionScope.historyRes[status.index]}"/>
                       </td>
                     </tr>
                   </c:forEach>
@@ -51,31 +54,11 @@
                 <a class="btn btn-lg btn-block btn-success" href="gamestart.htm">start game</a>
             </div>
         </div>
-       
-     
-
-
-
-
-
         <footer class="footer">
             <hr>
                <p class="pull-right"> hangman by Xing</p>
         </footer>
     </div>
-
-
-
-    
-<!--     <script type="text/javascript">
-        $("[rel=tooltip]").tooltip();
-        $(function() {
-            $('.demo-cancel-click').click(function(){return false;});
-        });
-    </script> -->
-     
-
-    
   </body>
 </html>
 

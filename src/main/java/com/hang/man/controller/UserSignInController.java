@@ -4,16 +4,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hang.man.DAO.UserDAO;
+import com.hang.man.exception.LoginFailException;
 import com.hang.man.pojo.User;
 
 @Controller
 public class UserSignInController {
 
+	
+	
 	@RequestMapping("/jumpToSignin.htm")
 	public String jumpToSignin() {
 		return "sign_in";
@@ -30,7 +34,6 @@ public class UserSignInController {
 			
 			return "game_start";
 		}
-		
 		return "sign_in";
 	}
 	
@@ -38,6 +41,7 @@ public class UserSignInController {
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.invalidate();
+		
 		return "sign_in";
 	}
 }

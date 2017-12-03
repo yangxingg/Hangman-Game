@@ -12,7 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/Css/sign_in.css" />" />
 	<script type="text/javascript" src="<c:url value="/resources/JS/sign_up.js" />"></script>
 	
-<title>Insert title here</title>
+<title>Hangman</title>
 </head>
 <body style="background-image:url(<c:url value="/Images/background.jpg" />); background-size: 100%;"> 
   <!--<![endif]-->

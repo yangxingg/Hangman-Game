@@ -13,16 +13,10 @@
 	<script type="text/javascript" src="<c:url value="/resources/JS/game_play.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/ajax.js" />"></script>
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/Css/game_play.css" />" />
-<title>hangman</title>
+<title>Hangman</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/navigation.jsp" />
-<!-- 
-    // $Cust_ID = $_GET["id"];
-    // $User_ID = $_COOKIE["User_ID"]; -->
-
-	
-    
 
     <div class="container-fluid" >     
         <div id="pictures" class="row">
@@ -32,14 +26,12 @@
         </div>
         <div class="blank"></div>
         <div id="word" class="row">
-          
             <div id=" letters"  style="margin: auto;">
             	<!-- generate word guseeing section -->
             	   <div id="letters_result"></div>
                <c:forEach var='i' begin="1" end="${sessionScope.wordLength}"  >
                		<div class="word_result" style="display:inline-block; vertical-align: middle;  border-bottom: 2px solid white; width:50px; height:50px;"></div>
                </c:forEach>
-               
             </div>
         </div>
         <div id="board" class="row">
@@ -137,7 +129,7 @@
                </div>
             </div>
             <div class="col-md-2" id="restart">
-                <a href="gamestart.htm" title="restart" ><i class="fa fa-refresh fa-3x" aria-hidden="true"></i></a>
+                <a href="gameRestart.htm" title="restart" ><i class="fa fa-refresh fa-3x" aria-hidden="true"></i></a>
             </div>
             <div class="col-md-12">
             		<div id="gameResult" class="col-md-4">
@@ -146,32 +138,11 @@
             		</div>
             </div>
         </div>
-     
-
-
-
-
-
         <footer class="footer">
             <hr>
                <p class="pull-right"> hangman by Xing</p>
         </footer>
     </div>
-
-
-
-    
-<!--     <script type="text/javascript">
-        $("[rel=tooltip]").tooltip();
-        $(function() {
-            $('.demo-cancel-click').click(function(){return false;});
-        });
-    </script> -->
-     <script type="text/javascript">
-     
-     </script>
-
-    
   </body>
 </html>
 

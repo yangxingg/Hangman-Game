@@ -12,7 +12,7 @@
     <script type="text/javascript" src="<c:url value="/resources/lib/jqueryValidation/dist/jquery.validate.min.js" />"></script>
 	<script type="text/javascript" src="<c:url value="/resources/JS/sign_in.js" />"></script>
 	<script src="<c:url value="/resources/ajax.js" />" ></script>
-<title>Insert title here</title>
+<title>Hangman</title>
 </head>
 <body style="background-image:url(<c:url value="/Images/background.jpg" />); background-size: 100%;"> 
  

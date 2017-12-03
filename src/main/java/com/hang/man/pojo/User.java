@@ -34,8 +34,7 @@ public class User {
 
 	//@JsonManagedReference
 	@OneToMany( mappedBy = "user")
-	private Set<History> historylist = new HashSet<>();
-	
+	private Set<History> historylist = new HashSet<History>();
 	
 	public User() {
 		super();
@@ -77,8 +76,5 @@ public class User {
 	public void setHistorylist(Set<History> historylist) {
 		this.historylist = historylist;
 	}
-
-
-	
 	
 }

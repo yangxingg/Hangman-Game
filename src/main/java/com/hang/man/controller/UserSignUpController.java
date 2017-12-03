@@ -7,17 +7,20 @@ import org.omg.CORBA.UserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hang.man.DAO.UserDAO;
+import com.hang.man.exception.LoginFailException;
 import com.hang.man.pojo.User;
 
 @Controller
 public class UserSignUpController {
 	private static final Logger logger = LoggerFactory.getLogger(UserSignUpController.class);
+	
 	
 	@RequestMapping("/jumpToSignup.htm")
 	public String jumpToSignup() {
@@ -27,13 +30,11 @@ public class UserSignUpController {
 	@RequestMapping( value="/checkUserName.htm",method=RequestMethod.POST,params={"userName"})
 	public @ResponseBody String checkUserName(HttpServletRequest request, @RequestParam(value="userName") String userName) throws UserException {
 		UserDAO userDao = new UserDAO();
-		
 		if(userDao.exist(userName))
 			return "0";
 		else
 			return "1";
 	}
-	
 	
 	@RequestMapping(method=RequestMethod.POST,value="/user/signup.htm")
 	public String signup(HttpServletRequest request) {
@@ -49,5 +50,4 @@ public class UserSignUpController {
 		
 		return "game_start"; 
 	}
-	
 }

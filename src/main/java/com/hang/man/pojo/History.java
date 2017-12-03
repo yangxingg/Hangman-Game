@@ -31,7 +31,6 @@ public class History {
 	@ManyToOne()
 	private User user;
 	
-	
 	public History() {
 		super();
 	}
@@ -41,9 +40,6 @@ public class History {
 		hisTime = His_Time;
 		this.user = user;
 	}
-
-	
-
 
 	public int getHisId() {
 		return hisId;
@@ -76,6 +72,4 @@ public class History {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
 }

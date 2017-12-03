@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/lib/bootstrap/dist/css/bootstrap.min.css" />" />
     <link rel="stylesheet" href="<c:url value="/resources/lib/font-awesome/css/font-awesome.min.css" />" />
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/Css/game_start.css" />" />
-<title>hangman</title>
+<title>Hangman</title>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/common/navigation.jsp" />

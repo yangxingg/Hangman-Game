@@ -11,13 +11,11 @@ public class WordDAO extends DAO{
 	private static final Logger logger = LoggerFactory.getLogger(WordDAO.class);
 	public void addWord(Word word) {
 		try {
-			
 			begin();
 			logger.info("You are in wordDAO");
 			getSession().save(word);
     			commit();
     			close();
-        	 
         } catch (HibernateException e) {
             rollback();
             logger.info("wordDA0 ERR: "+e.getMessage());
@@ -26,7 +24,6 @@ public class WordDAO extends DAO{
 	
 	public Word getWord() {
 		try {
-			
 			begin();
 			Query q = getSession().createQuery("FROM Word ORDER BY rand()").setMaxResults(1);
 			logger.info("You are in wordDAO");
@@ -34,12 +31,10 @@ public class WordDAO extends DAO{
     			commit();
     			close();
     			return word;
-        	 
         } catch (HibernateException e) {
             rollback();
             logger.info("wordDA0 ERR: "+e.getMessage());
         }	
-		
 		return null;
 	}
 }

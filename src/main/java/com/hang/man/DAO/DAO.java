@@ -20,7 +20,6 @@ public class DAO {
     public static Session getSession()
     {
         Session session = (Session) DAO.sessionThread.get();
-        
         if (session == null)
         {
             session = sessionFactory.openSession();
@@ -30,7 +29,8 @@ public class DAO {
     }
 
     protected void begin() {
-        getSession().beginTransaction();
+    		if(!getSession().getTransaction().isActive())
+    			getSession().beginTransaction();
     }
 
     protected void commit() {

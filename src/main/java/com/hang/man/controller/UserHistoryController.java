@@ -16,7 +16,6 @@ import com.hang.man.pojo.History;
 import com.hang.man.pojo.User;
 
 @Controller
-@RequestMapping("/user/history_view.htm")
 public class UserHistoryController {
 	private static final Logger logger = LoggerFactory.getLogger(UserHistoryController.class);
 	@RequestMapping("/user/history_view.htm")
@@ -25,10 +24,10 @@ public class UserHistoryController {
 		
 		User user = (User) session.getAttribute("user"); 
 		HistoryDAO historyDao = new HistoryDAO();
+		//get history list
 		List<History> historyList = historyDao.getHistoryList(user);
-		
-		List<String> historyTime = new ArrayList<>();
-		List<String> historyRes = new ArrayList<>();
+		List<String> historyTime = new ArrayList<String>();
+		List<String> historyRes = new ArrayList<String>();
 		for(History h : historyList) {
 			historyTime.add(h.getHisTime());
 			logger.info(String.valueOf(h.getHisRes()));
@@ -37,10 +36,17 @@ public class UserHistoryController {
 			else
 				historyRes.add("Fail");
 		}
-		
 		session.setAttribute("historyTime", historyTime);
 		session.setAttribute("historyRes", historyRes);
 		session.setAttribute("historyLen", historyList.size());
+		//get fail and success count
+		long failCount = historyDao.getFailCount(user);
+		long succeCount = historyDao.getSucceCount(user);
+		//success/total
+		double ratio = Math.floor(succeCount*10000/(failCount + succeCount))/100;
+		session.setAttribute("failCount", failCount);
+		session.setAttribute("succeCount", succeCount);
+		session.setAttribute("ratio", ratio);
 		
 		return "history";
 	}
